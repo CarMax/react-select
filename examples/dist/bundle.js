@@ -520,7 +520,7 @@ var Creatable = _react2['default'].createClass({
 		this.inputValue = input;
 
 		if (onInputChange) {
-			onInputChange(input);
+			return onInputChange(input);
 		}
 	},
 

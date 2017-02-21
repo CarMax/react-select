@@ -173,7 +173,7 @@ const Creatable = React.createClass({
 		this.inputValue = input;
 
 		if (onInputChange) {
-			onInputChange(input);
+			return onInputChange(input);
 		}
 	},
 
