@@ -516,12 +516,12 @@ var Creatable = _react2['default'].createClass({
 	onInputChange: function onInputChange(input) {
 		var onInputChange = this.props.onInputChange;
 
+		// This value may be needed in between Select mounts (when this.select is null)
+		this.inputValue = input;
+
 		if (onInputChange) {
 			onInputChange(input);
 		}
-
-		// This value may be needed in between Select mounts (when this.select is null)
-		this.inputValue = input;
 	},
 
 	onInputKeyDown: function onInputKeyDown(event) {
@@ -533,9 +533,6 @@ var Creatable = _react2['default'].createClass({
 
 		if (focusedOption && focusedOption === this._createPlaceholderOption && shouldKeyDownEventCreateNewOption({ keyCode: event.keyCode })) {
 			this.createNewOption();
-
-			// Prevent decorated Select from doing anything additional with this keyDown event
-			event.preventDefault();
 		} else if (onInputKeyDown) {
 			onInputKeyDown(event);
 		}
